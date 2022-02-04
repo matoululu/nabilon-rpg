@@ -1,0 +1,25 @@
+title: Welcome to Nabilon!
+author: Matthew Marineau
+email: matou.github@gmail.com
+version: 1
+description: > #
+  Nabilon, a text based RPG
+
+collections:
+  posts:
+    output: true
+    permalink: /posts/:path/
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+    sass_dir: _sass
+    style: compact
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

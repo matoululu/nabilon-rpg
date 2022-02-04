@@ -1,0 +1,24 @@
+{% assign date_format = "%b %-d, %Y" %}
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- seo -%}
+    <link href="{{ "images/favicon.png" | relative_url }}" rel="shortcut icon">
+    <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}?v=3">
+  </head>
+  <body class="{{ page.title | slugify }}">
+
+    {% include header.html %}
+
+    <main role="main" class="main {{ page.layout | slugify }}">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+    <script src="{{ "/js/main.js" | relative_url }}"></script>
+  </body>
+</html>
