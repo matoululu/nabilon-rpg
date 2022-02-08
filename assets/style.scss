@@ -5,15 +5,14 @@
 ============================================ */
 
 @import 'normalize';
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=VT323&display=swap');
 
 /* Variables
 ============================================ */
 
 :root {
-  --color-primary: tomato;
-  --color-text: #212121;
-  --color-bg: #fff;
+  --color-text: #fff;
+  --color-bg: #212121;
 }
 
 /* Basics
@@ -31,11 +30,96 @@ body {
 
 a,
 a:visited {
-  color: var(--color-primary);
-  text-decoration: none;
+  color: var(--color-text);
+}
 
-  &:focus,
-  &:hover {
-    text-decoration: underline;
+/* Navigation
+============================================ */
+
+// coming soon
+
+/* Main
+============================================ */
+
+main {
+  width: 100%;
+  max-width: 960px;
+  margin: 0px auto;
+  padding: 4rem 0;
+}
+
+/* Footer
+============================================ */
+
+footer {
+  width: 100%;
+  max-width: 960px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+/* Text log
+============================================ */
+
+text-log {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  padding: 1rem 0;
+  border: 1px solid #444;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.text-log__list {
+  font-family: 'VT323', monospace;
+  color: #fff;
+  list-style: none;
+  font-size: 1.25rem;
+}
+
+.text-log__list li {
+  padding: 0.25rem 1rem;
+}
+
+.text-log__list li:nth-child(odd) {
+  background-color: rgba(0,0,0,0.15);
+}
+
+/* Text input
+============================================ */
+
+text-input {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-top: 0;
+}
+
+.text-input__input {
+  flex: 1 0 auto;
+  border: 0;
+  background-color: transparent;
+  font-family: 'VT323', monospace;
+  color: #fff;
+  font-size: 1.25rem;
+
+  &:active,
+  &:focus {
+    outline: 0;
   }
+}
+
+.text-input__button {
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  font-size: 2rem;
 }

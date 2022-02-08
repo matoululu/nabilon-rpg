@@ -1,17 +1,11 @@
-<nav role="navigation">
-  <a href="{{ '/' | relative_url }}">
+<nav class="nav" role="navigation">
+  <a class="nav__logo" href="{{ '/' | relative_url }}">
     <h1>Nabilon</h1>
   </a>
-  <ul>
-    <li>
-      <a href="{{ '/game' | relative_url }}">
-        Game
-      </a>
+  <ul class="nav__list">
+    <li class="nav__list-item">
       <a href="{{ '/blog' | relative_url }}">
         News
-      </a>
-      <a href="{{ '#' | relative_url }}">
-        Login
       </a>
     </li>
   </ul>

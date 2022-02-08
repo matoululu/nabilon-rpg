@@ -11,14 +11,11 @@
     <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}?v=3">
   </head>
   <body class="{{ page.title | slugify }}">
-
-    {% include header.html %}
-
     <main role="main" class="main {{ page.layout | slugify }}">
       {{ content }}
     </main>
 
     {% include footer.html %}
-    <script src="{{ "/js/main.js" | relative_url }}"></script>
+    <script src="{{ "/js/bundle.js" | relative_url }}"></script>
   </body>
 </html>
