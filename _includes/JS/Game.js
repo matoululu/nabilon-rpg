@@ -3,12 +3,17 @@ class Game {
     this.gameData = new GameData();
     this.helper = new Helper();
     this.data = this.gameData.getGameData();
+    this.CharacterSheet = new CharacterSheet();
+    this.travel = new Travel();
   }
 
   init() {
     this.data.then(data => {
+      this.CharacterSheet.loadData();
+
       if (data) {
-        this.helper.sendResponse(`Welcome back ${data.player.name}, you are currently in: ${data.location}`);
+        this.helper.sendResponse(`Welcome back ${data.player.name}, you are currently in: ${data.player.location}`, false, true);
+        this.travel.handleLocation(data.player.location);
       } else {
         this.onBoarding();
       }
@@ -18,37 +23,8 @@ class Game {
   onBoarding() {
     this.gameData.newGameData()
       .then(data => {
-        this.helper.sendResponse(
-          `Welcome to the game! I see you are new here. Let's get you started. You can set your name by typing 'setname' followed by your name.`
-        );
+        this.helper.sendResponse(`Greetings adventurer, welcome to the land of Nabilon! I am the Onboarder here to help you get started. Before you can commence your journey we need to know a little bit about you. What is your name? (setname <name>)`, false, true);
+        this.gameData.setGameData(['player'], ['state'], ['name']);
       });
-  }
-
-  getGameData() {
-    const gameData = localStorage.getItem('gameData');
-    if (gameData !== null) {
-      return JSON.parse(gameData);
-    } else {
-      const newGameData = {
-        player: {
-          name: 'Hero',
-          inventory: {
-            money: 0,
-            items: [],
-          },
-        },
-        location: 'tutorial',
-      };
-
-      localStorage.setItem('gameData', JSON.stringify(newGameData));
-      return JSON.parse(newGameData);
-    }
-  }
-
-  setGameData(gameData) {
-    return new Promise(resolve => {
-      localStorage.setItem('gameData', JSON.stringify(gameData));
-      resolve('Game data saved');
-    })
   }
 }

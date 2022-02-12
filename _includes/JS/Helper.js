@@ -1,8 +1,10 @@
 class Helper {
-  sendResponse(content) {
+  sendResponse(content, isUser = false, isNote = false) {
     const responseEvent = new CustomEvent('text:response', {
       detail: {
-        content
+        content,
+        isUser,
+        isNote
       },
       bubbles: true,
     });

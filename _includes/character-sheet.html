@@ -1,0 +1,29 @@
+<div class="character-sheet">
+  <div class="character-sheet__top">
+    <div class="character-sheet__portrait">
+      <img src="{{ "/assets/images/portrait-placeholder.png" | relative_url }}" alt="You!">
+    </div>
+    <div class="character-sheet__bio">
+      <h2><span data-hero-name>???</span> the <span data-hero-class>???</span></h2>
+      <ul>
+        <li><strong>LVL:</strong> <span data-hero-level></span></li>
+        <li><strong>HP:</strong> <span data-hero-current-hp></span>/<span data-hero-total-hp></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="character-sheet__bottom">
+    <!-- <p><strong>QUEST:</strong> <span data-hero-quest></span></p> -->
+
+    <div class="character-sheet__wielding">
+      <p><strong>Wielding</strong></p>
+      <p data-hero-weapon></p>
+      <p><strong>Wearing</strong></p>
+      <p data-hero-armor></p>
+    </div>
+    <div class="character-sheet__inventory">
+      <h2>Inventory</h2>
+      <ol data-hero-inventory>
+      </ol>
+    </div>
+  </div>
+</div>

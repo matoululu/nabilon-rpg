@@ -5,7 +5,7 @@
 ============================================ */
 
 @import 'normalize';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
 
 /* Variables
 ============================================ */
@@ -13,6 +13,8 @@
 :root {
   --color-text: #fff;
   --color-bg: #212121;
+  --border-standard: 1px solid #444;
+  --border-radius-standard: 7px;
 }
 
 /* Basics
@@ -21,7 +23,7 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Mono', monospace;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -33,6 +35,11 @@ a:visited {
   color: var(--color-text);
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
 /* Navigation
 ============================================ */
 
@@ -42,10 +49,18 @@ a:visited {
 ============================================ */
 
 main {
+  display: flex;
+  flex-wrap: nowrap;
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0px auto;
   padding: 4rem 0;
+}
+
+.play-area {
+  flex: 2 0 auto;
+  max-width: calc(1200px - (350px + 2rem));
+
 }
 
 /* Footer
@@ -53,9 +68,82 @@ main {
 
 footer {
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0px auto;
   text-align: center;
+}
+
+/* Character sheet
+============================================ */
+
+.character-sheet {
+  margin-right: 2rem;
+  flex: 1 0 auto;
+  max-width: 350px;
+  border: var(--border-standard);
+  border-radius: var(--border-radius-standard);
+}
+
+.character-sheet__top {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-bottom: var(--border-standard);
+}
+
+.character-sheet__portrait {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 20%;
+}
+
+.character-sheet__bio {
+  padding-left: 1rem;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.character-sheet__bottom {
+  padding: 1rem;
+
+  ol {
+    list-style: none;
+    padding: 0.5rem 0.25rem;
+    overflow: auto;
+    margin: 0 -1.25rem;
+  }
+
+  li {
+    padding: 0.5rem 1.25rem;
+  }
+
+  li:nth-child(odd) {
+    background-color: rgba(0,0,0,0.15);
+  }
+}
+
+.character-sheet__wielding {
+  margin-bottom: 1rem;
+
+  .rare {
+    color: deepskyblue;
+  }
+
+  .uncommon {
+    color: lightgreen;
+  }
+
+  .legendary {
+    color: orange;
+  }
+
+  .magical {
+    color: deeppink;
+  }
 }
 
 /* Text log
@@ -66,22 +154,28 @@ text-log {
   flex-direction: column-reverse;
   width: 100%;
   padding: 1rem 0;
-  border: 1px solid #444;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border: var(--border-standard);
+  border-top-left-radius: var(--border-radius-standard);
+  border-top-right-radius: var(--border-radius-standard);
   height: 50vh;
   overflow-y: auto;
 }
 
 .text-log__list {
-  font-family: 'VT323', monospace;
   color: #fff;
   list-style: none;
-  font-size: 1.25rem;
 }
 
 .text-log__list li {
   padding: 0.25rem 1rem;
+
+  &.npc {
+    color: darkcyan;
+  }
+
+  &.note {
+    color: cornflowerblue;
+  }
 }
 
 .text-log__list li:nth-child(odd) {
@@ -95,9 +189,9 @@ text-input {
   display: flex;
   width: 100%;
   padding: 1rem;
-  border: 1px solid #444;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border: var(--border-standard);
+  border-bottom-left-radius: var(--border-radius-standard);
+  border-bottom-right-radius: var(--border-radius-standard);
   border-top: 0;
 }
 
