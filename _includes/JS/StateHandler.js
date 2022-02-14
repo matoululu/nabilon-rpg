@@ -18,7 +18,7 @@ class StateHandler {
             } else {
               this.gameData.setGameData(['player', 'player'], ['name', 'state'], [secondParam, 'class']);
               this.helper.sendResponse(`Very well, I will call you ${secondParam} from now on.`);
-              this.helper.sendResponse(`Now what is your profession? Are you a warrior, a mage, or a thief? (setclass <class> OR info <class>)`);
+              this.helper.sendResponse(`Now what is your profession? Are you a hoplite, a honeymancer, or a encroacher? (setclass <class> OR info <class>)`);
             }
           } else {
             this.helper.sendResponse('Missing second parameter (name). Ex: setname <name>');
@@ -34,40 +34,40 @@ class StateHandler {
           } else if (secondParam) {
             let weapon;
             let armor;
-            if (secondParam === 'warrior' || secondParam === 'mage' || secondParam === 'thief') {
-              if (secondParam === 'warrior') {
-                this.helper.sendResponse(`Of course! I can sense your strength, ${secondParam}.`);
+            if (secondParam === 'hoplite' || secondParam === 'honeymancer' || secondParam === 'encroacher') {
+              if (secondParam === 'hoplite') {
+                this.helper.sendResponse(`Terrific! Your ferocity exceeds your bounds, ${secondParam}.`);
                 weapon = {
-                  name: 'Short sword',
+                  name: 'My trusty Axe',
                   damage: 0,
                   quality: 'common',
                 };
                 armor = {
-                  name: 'Studded leather armor',
+                  name: 'Old buckler',
                   defense: 0,
                   quality: 'common',
                 };
-              } else if (secondParam === 'mage') {
-                this.helper.sendResponse(`Outstanding! You must be wise beyond your years, ${secondParam}.`);
+              } else if (secondParam === 'honeymancer') {
+                this.helper.sendResponse(`Splendid! I can even feel the winds of magic buzzing, ${secondParam}.`);
                 weapon = {
-                  name: 'Staff',
+                  name: 'My first wand',
                   damage: 0,
                   quality: 'common',
                 };
                 armor = {
-                  name: 'Cloth robe',
+                  name: 'Nothing!',
                   defense: 0,
                   quality: 'common',
                 };
-              } else if (secondParam === 'thief') {
-                this.helper.sendResponse(`Wonderful! Beware what lurks in the shadows, ${secondParam}.`);
+              } else if (secondParam === 'encroacher') {
+                this.helper.sendResponse(`Sinister! Beware what lurks in the shadows, ${secondParam}.`);
                 weapon = {
                   name: 'Pair of knives',
                   damage: 0,
                   quality: 'common',
                 };
                 armor = {
-                  name: 'Leather armor',
+                  name: 'Dark robes',
                   defense: 0,
                   quality: 'common',
                 };
@@ -86,12 +86,12 @@ class StateHandler {
         } else if(firstParam = 'info') {
           if (secondParam) {
             //get class info
-            if (secondParam === 'warrior') {
-              this.helper.sendResponse(`Warriors are iron-willed fighters. Occasionally death-strike enemies that are below your level.`);
-            } else if (secondParam === 'mage') {
-              this.helper.sendResponse(`Mages are brilliant masters of magic. Occasionally cast a powerful that deals massive damage.`);
-            } else if (secondParam === 'thief') {
-              this.helper.sendResponse(`Thieves are cunning tricksters. You gain more money when defeating enemies.`);
+            if (secondParam === 'hoplite') {
+              this.helper.sendResponse(`Hoplites are iron-willed fighters. You have a chance to leap on enemies lower level than you, instantly killing them.`);
+            } else if (secondParam === 'honeymancer') {
+              this.helper.sendResponse(`Honeymancers are brilliant masters of honey magic. Occasionally cast a powerful blast of honey that deals massive damage.`);
+            } else if (secondParam === 'encroacher') {
+              this.helper.sendResponse(`Encroachers are cunning tricksters. Your quick hands allow you to gain more money when defeating enemies.`);
             } else {
               this.helper.sendResponse('Please choose a valid class. (info <class>)');
             }

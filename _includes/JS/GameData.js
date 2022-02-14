@@ -24,7 +24,10 @@ class GameData {
           inventory: {
             money: 25,
             items: {
-              'health potion': 1,
+              'Health potion': {
+                'quantity': 1,
+                'value': 10,
+              }
             },
           },
         },

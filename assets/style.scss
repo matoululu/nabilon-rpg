@@ -54,7 +54,7 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0px auto;
-  padding: 4rem 0;
+  padding: 4rem 0 1rem;
 }
 
 .play-area {
@@ -67,10 +67,34 @@ main {
 ============================================ */
 
 footer {
+  display: flex;
+  flex-wrap: nowrap;
   width: 100%;
   max-width: 1200px;
   margin: 0px auto;
-  text-align: center;
+  justify-content: space-between;
+  color: darkgray;
+  font-size: 0.75rem;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    padding-right: 1rem;
+  }
+
+  a,
+  a:visited {
+    text-decoration: none;
+    color: darkgray;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 /* Character sheet
@@ -95,8 +119,22 @@ footer {
 
 .character-sheet__portrait {
   flex-shrink: 0;
-  width: 100%;
-  max-width: 20%;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-image: url({{ "/assets/images/unknown.png" | relative_url }});
+
+  &.honeymancer {
+    background-image: url({{ "/assets/images/honeymancer.png" | relative_url }});
+  }
+
+  &.hoplite {
+    background-image: url({{ "/assets/images/hoplite.png" | relative_url }});
+  }
+
+  &.encroacher {
+    background-image: url({{ "/assets/images/encroacher.png" | relative_url }});
+  }
 }
 
 .character-sheet__bio {

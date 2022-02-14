@@ -9,6 +9,7 @@ class CharacterSheet {
     this.heroQuest = document.querySelector('[data-hero-quest]');
     this.heroWeapon = document.querySelector('[data-hero-weapon]');
     this.heroArmor = document.querySelector('[data-hero-armor]');
+    this.heroPortrait = document.querySelector('[data-hero-portrait]');
 
     this.init();
   }
@@ -38,7 +39,8 @@ class CharacterSheet {
         armor: data.player.armor,
       };
 
-      console.log(player.weapon);
+      this.heroPortrait.classList.remove('hoplite', 'honeymancer', 'encroacher', '???');
+      this.heroPortrait.classList.add(player.class);
 
       this.heroName.innerHTML = player.name;
       this.heroClass.innerHTML = player.class;
@@ -66,7 +68,7 @@ class CharacterSheet {
       if (Object.keys(player.items).length > 0) {
         Object.keys(player.items).forEach((item, index) => {
           const listItem = document.createElement('li');
-          listItem.innerHTML = `${index+1}. ${item} x${player.items[item]}`;
+          listItem.innerHTML = `${index+1}. ${item} x${player.items[item].quantity}`;
           this.heroInventory.appendChild(listItem);
         });
       }
