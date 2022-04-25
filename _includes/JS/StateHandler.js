@@ -36,6 +36,7 @@ class StateHandler {
             let armor;
             if (secondParam === 'hoplite' || secondParam === 'honeymancer' || secondParam === 'encroacher') {
               if (secondParam === 'hoplite') {
+                secondParam = 'Hoplite';
                 this.helper.sendResponse(`Terrific! Your ferocity exceeds your bounds, ${secondParam}.`);
                 weapon = {
                   name: 'My trusty Axe',
@@ -48,6 +49,7 @@ class StateHandler {
                   quality: 'common',
                 };
               } else if (secondParam === 'honeymancer') {
+                secondParam = 'Honeymancer';
                 this.helper.sendResponse(`Splendid! I can even feel the winds of magic buzzing, ${secondParam}.`);
                 weapon = {
                   name: 'My first wand',
@@ -60,6 +62,7 @@ class StateHandler {
                   quality: 'common',
                 };
               } else if (secondParam === 'encroacher') {
+                secondParam = 'Encroacher';
                 this.helper.sendResponse(`Sinister! Beware what lurks in the shadows, ${secondParam}.`);
                 weapon = {
                   name: 'Pair of knives',

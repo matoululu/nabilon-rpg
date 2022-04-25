@@ -40,7 +40,7 @@ class CharacterSheet {
       };
 
       this.heroPortrait.classList.remove('hoplite', 'honeymancer', 'encroacher', '???');
-      this.heroPortrait.classList.add(player.class);
+      this.heroPortrait.classList.add(player.class.toLowerCase());
 
       this.heroName.innerHTML = player.name;
       this.heroClass.innerHTML = player.class;
