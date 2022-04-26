@@ -12,7 +12,7 @@ class Game {
       this.CharacterSheet.loadData();
 
       if (data) {
-        this.helper.sendResponse(`Welcome back ${data.player.name}, you are currently in: ${data.player.location}`, false, true);
+        this.helper.sendResponse(`T1DL: Connection established. Welcome back ${data.player.name}, I am currently located in: ${data.player.location}`, false, true);
         this.travel.handleLocation(data.player.location);
       } else {
         this.onBoarding();
@@ -23,7 +23,7 @@ class Game {
   onBoarding() {
     this.gameData.newGameData()
       .then(data => {
-        this.helper.sendResponse(`Greetings adventurer, welcome to the land of Nabilon! I am the Onboarder here to help you get started. Before you can commence your journey we need to know a little bit about you. What is your name? (setname <name>)`, false, true);
+        this.helper.sendResponse(`INCOMING TRANSMISSION:  Greetings UltraCorp employee #4259027. You have been assigned to investigate and document cause of catastropic failure aboard Spaceship Toledo. Before connecting to your explorer unit, please confirm your name. (setname <name>)`, false, true);
         this.gameData.setGameData(['player'], ['state'], ['name']);
       });
   }

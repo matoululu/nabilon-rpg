@@ -30,57 +30,49 @@ class TextLog extends HTMLElement {
           const secondParam = contentSplit[1];
           const thirdParam = contentSplit[2];
 
-          if (state) {
+          if (state != '') {
             this.stateHandler.handleState(state, firstParam, secondParam, thirdParam);
           } else {
             switch (firstParam) {
               case 'travel':
                 if (secondParam && thirdParam) {
-                  this.addReply('Too many parameters. Ex: travel <destination>');
+                  this.addReply('ERROR: Too many parameters. Ex: travel <destination>');
                 } else if (secondParam) {
-                  //this.location.setLocation(secondParam);
+                  this.location.setLocation(secondParam);
                 } else {
                   this.addReply('Missing second parameter (destination). Ex: travel <destination>');
-                }
-                break;
-              case 'buy':
-                if (secondParam && thirdParam) {
-                  console.log('buy code!');
-                } else {
-                  this.addReply('Missing 2 parameters (item and amount). Ex: buy <item> <amount>');
-                }
-                break;
-              case 'sell':
-                if (secondParam && thirdParam) {
-                  console.log('sell code!');
-                } else {
-                  this.addReply('Missing 2 parameters (item and amount). Ex: sell <item> <amount>');
                 }
                 break;
               case 'help':
                 this.addReply('Available commands: travel, buy, sell, help, where');
                 this.addReply('travel <destination> | travel to a specific destination');
-                this.addReply('buy <item> <amount> | Buy an item');
-                this.addReply('sell <item> <amount> | Sell an item');
-                this.addReply('whereami | Get current location');
+                this.addReply('explore | Get current location information');
                 this.addReply('clear | Clear all text');
                 this.addReply('reset true | Restart from the beginning');
                 break;
-              case 'whereami':
-                this.addReply(`You are currently in: ${data.player.location}`, false, true);
+              case 'explore':
+                this.addReply(`T1DL: I am are currently located in: ${data.player.location}`, false, true);
                 this.travel.handleLocation(data.player.location);
                 break;
+              case 'interact':
+                if (secondParam && thirdParam) {
+                  this.addReply('ERROR: Too many parameters. Ex: interact <object>');
+                } else if (secondParam) {
+                  //this.interact.interactWith(secondParam);
+                } else {
+                  this.addReply('Missing second parameter (object). Ex: interact <object>');
+                }
               case 'clear':
                 this.list.innerHTML = '';
                 break;
               case 'reset':
                 if (secondParam && thirdParam) {
-                  this.addReply('Too many parameters. Ex: reset true');
+                  this.addReply('ERROR: Too many parameters. Ex: reset true');
                 } else if (secondParam) {
                   this.list.innerHTML = '';
                   this.game.onBoarding();
                 } else {
-                  this.addReply('Missing second parameter (true). Ex: reset true');
+                  this.addReply('ERROR: Missing second parameter (true). Ex: reset true');
                 }
                 break;
               default:

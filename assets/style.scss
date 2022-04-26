@@ -97,6 +97,37 @@ footer {
   }
 }
 
+/* Map
+============================================ */
+
+.map {
+  max-width: 150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.5em 0.5em;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . .";
+}
+
+.location {
+  border: 2px solid white;
+  height: 32px;
+
+  &.present {
+    border: 2px solid limegreen;
+    background-color: greenyellow;
+  }
+}
+
+
 /* Character sheet
 ============================================ */
 
@@ -108,7 +139,7 @@ footer {
   border-radius: var(--border-radius-standard);
 }
 
-.character-sheet__top {
+.character-sheet__info {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -122,19 +153,7 @@ footer {
   width: 80px;
   height: 80px;
   background-size: contain;
-  background-image: url({{ "/assets/images/unknown.png" | relative_url }});
-
-  &.honeymancer {
-    background-image: url({{ "/assets/images/honeymancer.png" | relative_url }});
-  }
-
-  &.hoplite {
-    background-image: url({{ "/assets/images/hoplite.png" | relative_url }});
-  }
-
-  &.encroacher {
-    background-image: url({{ "/assets/images/encroacher.png" | relative_url }});
-  }
+  background-image: url({{ "/assets/images/robot.png" | relative_url }});
 }
 
 .character-sheet__bio {
@@ -145,8 +164,20 @@ footer {
   }
 }
 
-.character-sheet__bottom {
+.character-sheet__map {
   padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: var(--border-standard);
+
+
+}
+
+.character-sheet__inventory {
+  padding: 1rem;
+
+  h2 {
+    font-size: 0.75rem;
+  }
 
   ol {
     list-style: none;
@@ -161,26 +192,6 @@ footer {
 
   li:nth-child(odd) {
     background-color: rgba(0,0,0,0.15);
-  }
-}
-
-.character-sheet__wielding {
-  margin-bottom: 1rem;
-
-  .rare {
-    color: deepskyblue;
-  }
-
-  .uncommon {
-    color: lightgreen;
-  }
-
-  .legendary {
-    color: orange;
-  }
-
-  .magical {
-    color: deeppink;
   }
 }
 

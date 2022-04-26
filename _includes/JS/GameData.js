@@ -4,25 +4,9 @@ class GameData {
       const gameData = {
         player: {
           name: '???',
-          level: 1,
-          class: '???',
-          quest: '',
           state: '',
-          current_hp: 100,
-          total_hp: 100,
-          location: 'the tutorial',
-          weapon: {
-            name: 'Fists',
-            damage: 0,
-            quality: 'common',
-          },
-          armor: {
-            name: 'Old clothes',
-            defense: 0,
-            quality: 'common',
-          },
+          location: 'Landing dock',
           inventory: {
-            money: 25,
             items: {
               'Health potion': {
                 'quantity': 1,
