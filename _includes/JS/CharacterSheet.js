@@ -21,17 +21,19 @@ class CharacterSheet {
       const player = {
         currentHp: data.player.current_hp,
         location: data.player.location,
-        items: data.player.inventory.items,
+        items: data.player.inventory,
       };
 
       this.heroLocation.innerHTML = player.location;
 
       this.heroInventory.innerHTML = '';
 
-      if (Object.keys(player.items).length > 0) {
-        Object.keys(player.items).forEach((item, index) => {
+      console.log(player.items)
+
+      if (player.items.length > 0) {
+        player.items.forEach(item => {
           const listItem = document.createElement('li');
-          listItem.innerHTML = `${index+1}. ${item} x${player.items[item].quantity}`;
+          listItem.innerHTML = item;
           this.heroInventory.appendChild(listItem);
         });
       }

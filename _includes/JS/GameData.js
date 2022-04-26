@@ -6,15 +6,8 @@ class GameData {
           name: '???',
           state: '',
           location: 'Landing dock',
-          inventory: {
-            items: {
-              'Health potion': {
-                'quantity': 1,
-                'value': 10,
-              }
-            },
-          },
-        },
+          inventory: ['Health potion'],
+        }
       };
 
       localStorage.setItem('gameData', JSON.stringify(gameData))
@@ -40,10 +33,15 @@ class GameData {
 
         //Loop through the keysPrimary and loop through the values
         keysPrimary.forEach((keyPrimary, index) => {
+          console.log(`key: ${keysSecondary}`)
           if (keysSecondary === null) {
             data[keyPrimary] = values[index];
           } else {
-            data[keyPrimary][keysSecondary[index]] = values[index];
+            if(keysSecondary == 'inventory') {
+              data[keyPrimary][keysSecondary[index]].push(values[index]);
+            } else {
+              data[keyPrimary][keysSecondary[index]] = values[index];
+            }
           }
         });
 

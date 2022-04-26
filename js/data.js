@@ -7,7 +7,11 @@ const data = {
     },
   },
   "interact": {
-    "console": {
+    "Landing dock": {
+      "console": {
+        "info": "T1DL: This appears to be an information console. I can upload a map of the ship from here.",
+        "interact": "T1DL: Map upload successful."
+      }
     },
   }
 }

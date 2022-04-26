@@ -8,6 +8,7 @@
 {% include /js/StateHandler.js %}
 {% include /js/Travel.js %}
 {% include /js/Location.js %}
+{% include /js/Interact.js %}
 
 {% include /js/TextInput.js %}
 {% include /js/TextLog.js %}

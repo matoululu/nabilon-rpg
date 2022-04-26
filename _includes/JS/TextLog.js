@@ -3,10 +3,13 @@ class TextLog extends HTMLElement {
     super();
     this.list = this.querySelector('[data-text-log-list]');
     this.location = new Location();
+    this.interact = new Interact();
     this.gameData = new GameData();
     this.stateHandler = new StateHandler();
     this.travel = new Travel();
     this.game = new Game();
+
+    console.log(this.interact)
 
     document.documentElement.addEventListener('text:submit', e => {
       this.handleSubmit(e.detail.content);
@@ -58,10 +61,20 @@ class TextLog extends HTMLElement {
                 if (secondParam && thirdParam) {
                   this.addReply('ERROR: Too many parameters. Ex: interact <object>');
                 } else if (secondParam) {
-                  //this.interact.interactWith(secondParam);
+                  this.interact.interactWith(data.player.location, secondParam);
                 } else {
                   this.addReply('Missing second parameter (object). Ex: interact <object>');
                 }
+                break;
+              case 'info':
+                  if (secondParam && thirdParam) {
+                    this.addReply('ERROR: Too many parameters. Ex: info <object>');
+                  } else if (secondParam) {
+                    this.interact.getInfo(data.player.location, secondParam);
+                  } else {
+                    this.addReply('Missing second parameter (object). Ex: info <object>');
+                  }
+                  break;
               case 'clear':
                 this.list.innerHTML = '';
                 break;
